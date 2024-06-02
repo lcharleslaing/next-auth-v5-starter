@@ -3,11 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-interface PageProps {
-  params: { id: string };
-}
-
-const getUser = cache(async (id: string) => {
+const getUser = cache(async (id) => {
   return prisma.user.findUnique({
     where: { id },
     select: { id: true, name: true, image: true, createdAt: true },
@@ -20,7 +16,7 @@ export async function generateStaticParams() {
   return allUsers.map(({ id }) => ({ id }));
 }
 
-export async function generateMetadata({ params: { id } }: PageProps) {
+export async function generateMetadata({ params: { id } }) {
   const user = await getUser(id);
 
   return {
@@ -28,7 +24,7 @@ export async function generateMetadata({ params: { id } }: PageProps) {
   };
 }
 
-export default async function Page({ params: { id } }: PageProps) {
+export default async function Page({ params: { id } }) {
   // Artificial delay to showcase static caching
   await new Promise((resolve) => setTimeout(resolve, 1500));
 

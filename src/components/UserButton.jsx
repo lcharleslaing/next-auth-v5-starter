@@ -1,6 +1,5 @@
 import avatarPlaceholder from "@/assets/images/avatar_placeholder.png";
 import { Lock, LogOut, Settings } from "lucide-react";
-import { User } from "next-auth";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,11 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-interface UserButtonProps {
-  user: User;
-}
-
-export default function UserButton({ user }: UserButtonProps) {
+export default function UserButton({ user }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

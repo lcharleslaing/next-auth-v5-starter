@@ -2,12 +2,12 @@
 
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
-import { UpdateProfileValues, updateProfileSchema } from "@/lib/validation";
+import { updateProfileSchema } from "@/lib/validation";
 import { revalidatePath } from "next/cache";
 
 // To learn more about server actions, watch my YT tutorial: https://www.youtube.com/watch?v=XD5FpbVpWzk
 
-export async function updateProfile(values: UpdateProfileValues) {
+export async function updateProfile(values) {
   const session = await auth();
   const userId = session?.user?.id;
 

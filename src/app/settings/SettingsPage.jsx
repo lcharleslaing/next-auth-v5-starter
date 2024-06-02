@@ -12,28 +12,23 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { UpdateProfileValues, updateProfileSchema } from "@/lib/validation";
+import { updateProfileSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "next-auth";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { updateProfile } from "./actions";
 
-interface SettingsPageProps {
-  user: User;
-}
-
-export default function SettingsPage({ user }: SettingsPageProps) {
+export default function SettingsPage({ user }) {
   const { toast } = useToast();
 
   const session = useSession();
 
-  const form = useForm<UpdateProfileValues>({
+  const form = useForm({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: { name: user.name || "" },
   });
 
-  async function onSubmit(data: UpdateProfileValues) {
+  async function onSubmit(data) {
     try {
       await updateProfile(data);
       toast({ description: "Profile updated." });

@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/loading.jsx",
+    "src/components/ui/dropdown-menu.jsx",
+    "src/app/page.jsx",
+    "src/app/not-found.jsx",
+    "src/app/layout.jsx",
+    "src/app/user/[id]/page.jsx",
+    "src/app/settings/actions.js",
+    "src/app/settings/page.jsx",
+    "src/app/settings/SettingsPage.jsx",
+    "src/app/api/auth/[...nextauth]/route.js",
+    "src/app/admin/page.jsx",
+    "src/_middleware.js",
+    "src/auth.js",
+    "src/lib/validation.js",
+    "src/lib/utils.js",
+    "src/lib/prisma.js",
+    "src/lib/getSession.js",
+    "src/components/UserButton.jsx",
+    "src/components/NavBar.jsx",
+    "src/components/ui/use-toast.js",
+    "src/components/ui/toaster.jsx",
+    "src/components/ui/toast.jsx",
+    "src/components/ui/label.jsx",
+    "src/components/ui/input.jsx",
+    "src/components/ui/form.jsx",
+    "src/components/ui/button.jsx"
+  ],
+  "exclude": ["node_modules", ".next", "dist"]
+}
