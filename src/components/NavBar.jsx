@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import UserButton from "./UserButton";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 export default function NavBar() {
   const session = useSession();
@@ -12,6 +13,7 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 bg-background px-3 shadow-sm">
       <nav className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3">
+      <Image width={30} height={30} src="/logo.png" alt="logo"/>
         <Link href="/" className="font-bold">
           Big2Tiny Solutions
         </Link>
